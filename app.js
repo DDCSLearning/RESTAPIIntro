@@ -1,10 +1,9 @@
-'use strict'
+const express = require('express');
 
-var express = require('express');
-var app = express();
+const app = express();
 
-var port = process.env.port || 3000;
+const port = process.env.port || 3000;
 
-app.listen(port, function () {
-  console.log(`Web server listening on: ${port}`)
+app.listen(port, () => {
+  console.log(`Web server listening on: ${port}`);
 });

@@ -1,0 +1,17 @@
+{
+  "name": "RestAPIIntro",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "DanielDeutsch <deudan1010@gmail.com>",
+  "license": "none",
+  "scripts": {
+    "start": "node app.js",
+    "watch": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

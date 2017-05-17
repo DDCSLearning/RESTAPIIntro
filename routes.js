@@ -46,14 +46,26 @@ router.delete('/:qID/answers/:aID', (req, res) => {
   });
 });
 
-router.post('/:qID/answers/:aID/vote-:dec', (req, res) => {
-  res.json({
-    response: 'a POST request for VOTING on answers',
-    question: req.params.qID,
-    answer: req.params.aID,
-    vote: req.params.dec,
-    body: req.body
-  });
-});
+router.post(
+  '/:qID/answers/:aID/vote-:dec',
+  (req, res, next) => {
+    if (req.params.dec.search(/^(up|down)$/) === -1) {
+      const err = new Error(`Not possible to vot for ${req.params.dec}!`);
+      err.status = 404;
+      next(err);
+    } else {
+      next();
+    }
+  },
+  (req, res) => {
+    res.json({
+      response: 'a POST request for VOTING on answers',
+      question: req.params.qID,
+      answer: req.params.aID,
+      vote: req.params.dec,
+      body: req.body
+    });
+  }
+);
 
 module.exports = router;

@@ -6,11 +6,12 @@
   "license": "none",
   "scripts": {
     "start": "node app.js",
-    "watch": "nodemon app.js"
+    "watch": "nodemon app.js && mongod"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "mongoose": "^4.9.9",
     "morgan": "^1.8.1"
   },
   "devDependencies": {

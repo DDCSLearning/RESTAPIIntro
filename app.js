@@ -1,14 +1,12 @@
 const express = require('express');
 const jsonParser = require('body-parser').json;
+const routes = require('./routes');
 
 const app = express();
 
 app.use(jsonParser());
+app.use('/questions', routes);
 
-app.use((req, res, next) => {
-  console.log(`Testing middleware ${req.query.times} times!`);
-  next();
-});
 
 const port = process.env.port || 3000;
 

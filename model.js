@@ -15,12 +15,12 @@ const AnswerSchema = new Schema({
   votes: { type: Number, default: 0 }
 });
 
-AnswerSchema.method('update', (updates, callback) => {
+AnswerSchema.method('update', function(updates, callback) {
   Object.assign(this, updates, { updatedAt: new Date() });
   this.parent().save(callback);
 });
 
-AnswerSchema.method('vote', (vote, callback) => {
+AnswerSchema.method('vote', function (vote, callback) {
   if (vote === 'up') {
     this.votes += 1;
   } else {
@@ -35,7 +35,7 @@ const QuestionSchema = new Schema({
   answers: [AnswerSchema]
 });
 
-QuestionSchema.pre('save', next => {
+QuestionSchema.pre('save', function (next) {
   this.answers.sort(sortAnswers);
   next();
 });

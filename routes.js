@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Question = require('./model').Question;
 
-// router params
+// router param
 router.param('qID', (req, res, next, id) => {
   Question.findById(id, (err, doc) => {
     if (err) return next(err);

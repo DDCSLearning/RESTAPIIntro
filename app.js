@@ -1,6 +1,8 @@
 const express = require('express');
 const routes = require('./routes');
 const app = express();
+const path = require('path');
+const rootpath = path.normalize(`${__dirname  }/q&a-app`);
 
 const jsonParser = require('body-parser').json;
 const logger = require('morgan');
@@ -16,6 +18,8 @@ db.once('open', () => {
   console.log('DB connected successfully!');
 });
 
+app.use('/questions', routes);
+app.use(express.static(rootpath));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
@@ -29,7 +33,7 @@ app.use((req, res, next) => {
 });
 app.use(logger('dev'));
 app.use(jsonParser());
-app.use('/questions', routes);
+
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;

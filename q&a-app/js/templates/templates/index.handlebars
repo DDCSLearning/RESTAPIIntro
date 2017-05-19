@@ -1,0 +1,22 @@
+<div class="grid-100">
+  <h1 class="name align-center">Code Q&amp;A</h1>
+
+  <!-- question form -->
+  <form class="question-form">
+    <div class="grid-parent">
+      <div class="grid-100 circle--input--group">
+        <input type="text" placeholder="What's your question?" id="question">
+        <input class="button-primary question" type="submit" value="Ask">
+      </div>
+    </div>
+  </form><!-- /question form -->
+
+  <h2>Top Questions</h2>
+  <hr>
+
+  <!-- questions -->
+  {{#each data}}
+    {{> q_partial}}
+  {{/each}}
+
+</div>

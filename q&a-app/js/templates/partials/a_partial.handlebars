@@ -1,0 +1,19 @@
+<div class="grid-parent answer-container" data-id="{{_id}}">
+  <div class="grid-10">
+    <div class="answer-voting">
+      <span class="icon-chevron-up"></span>
+      <strong class="vote-count">{{votes}}</strong></a>
+      <span class="icon-chevron-down"></span>
+    </div>
+  </div>
+  <div class="grid-90">
+    <a href="#">
+      <p>{{text}}</p>
+    </a>
+    <div class="align-right">
+      <small>Answered <strong>{{questionDateFormat createdAt}}</strong> |</small> 
+      <small>Modified <strong>{{questionDateFormat updatedAt}}</strong></small>
+    </div>
+  </div>
+</div>
+<hr>

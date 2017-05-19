@@ -6,13 +6,20 @@
   "license": "none",
   "scripts": {
     "start": "node app.js",
-    "watch": "nodemon app.js && mongod"
+    "watch": "nodemon app.js && mongod",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compilePartials": "handlebars q\\&a-app/js/templates/partials/ -p -f q\\&a-app/js/templates/partials.js",
+    "compileTemplates": "handlebars q\\&a-app/js/templates/templates/ -f q\\&a-app/js/templates/templates.js",
+    "catTemplates": "cat q\\&a-app/js/templates/templates.js q\\&a-app/js/templates/partials.js > q\\&a-app/js/mt.js",
+    "h": "npm run compileTemplates && npm run compilePartials && npm run catTemplates && rm q\\&a-app/js/templates/*.js"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.9",
-    "morgan": "^1.8.1"
+    "morgan": "^1.8.1",
+    "handlebars": "^4.0.5",
+    "jquery": "^2.2.3"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

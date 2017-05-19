@@ -1,0 +1,20 @@
+<div class="grid-100">
+
+  <!-- main question -->
+  <h2 class="question-heading">{{text}}</h2>
+  <hr><!-- /main question -->
+
+  <!-- answers -->
+  {{#each answers}}
+    {{> a_partial}}
+  {{/each}}
+  <!-- /answers -->
+
+  <h3>Add an Answer</h3>
+
+  <!-- answer form -->
+  <form>
+    <textarea class="full-width" placeholder="Your answer..." id="message"></textarea>
+    <input class="button-primary answer" type="submit" value="Post answer">
+  </form><!-- /answer form -->
+</div>
